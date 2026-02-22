@@ -30,9 +30,9 @@ This project was developed by a team of 4 members.
 
 Team Members:
 - R.Greeshmanth
-- Member 2
-- Member 3
-- Member 4
+- Member2
+- Member3
+- Member4
 
 Team contributions included frontend development, backend API development, database design, authentication, testing, and integration.
 

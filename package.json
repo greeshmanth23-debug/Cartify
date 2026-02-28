@@ -1,0 +1,34 @@
+{
+  "name": "cartify",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greeshmanth23-debug/Cartify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/greeshmanth23-debug/Cartify/issues"
+  },
+  "homepage": "https://github.com/greeshmanth23-debug/Cartify#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "fs": "^0.0.1-security",
+    "mongoose": "^9.2.2",
+    "multer": "^2.0.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

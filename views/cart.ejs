@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <link href="/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3">
+    <header class="header-box d-flex justify-content-between align-items-center">
+
+        <a href="/user" class="logo d-flex align-items-center text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="36"
+                 height="36"
+                 fill="currentColor"
+                 class="bi bi-cart me-2"
+                 viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5"/>
+            </svg>
+            <span class="fs-4 fw-semibold text-dark">Cartify</span>
+        </a>
+
+        <ul class="nav nav-pills align-items-center">
+            <li class="nav-item"><a href="/user" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/cart" class="nav-link active">Cart</a></li>
+            <li class="nav-item"><a href="/userproducts" class="nav-link">Products</a></li>
+            <li class="nav-item"><a href="/orders" class="nav-link">Orders</a></li>
+            <li class="nav-item ms-3">
+                <form action="/logout" method="POST">
+                    <button type="submit" class="btn btn-outline-danger">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </header>
+</div>
+
+<div class="product-sec mt-4">
+    <h2 class="mb-4">Welcome to your cart</h2>
+    <form action="/place-order" method="POST">
+        <div class="products">
+            <% let grandTotal = 0; %>
+            <% items.forEach(function(product, index){ 
+                const subtotal = product.price * product.cartQuantity;
+                grandTotal += subtotal;
+            %>
+            <div class="product-card">
+                <img src="/uploads/<%= product.image %>" width="100%">
+                <h3><%= product.name %></h3>
+                <span class="badge bg-danger mb-2">
+                    ₹ <%= product.price %>
+                </span>
+                <input type="hidden" 
+                       name="products[<%= index %>][id]" 
+                       value="<%= product._id %>"
+                >
+                <div class="product-det mb-2">
+                    <label>Qty:</label>
+                    <input 
+                        type="number"
+                        min="1"
+                        max="<%= product.quantity %>"
+                        value="<%= product.cartQuantity %>"
+                        name="products[<%= index %>][quantity]"
+                        class="form-control quantity-input"
+                        data-price="<%= product.price %>"
+                        style="width:90px;"
+                    >
+                </div>
+                <p>
+                    Subtotal: ₹ 
+                    <span class="item-total"><%= subtotal %></span>
+                </p>
+                <button 
+                    type="submit"
+                    formaction="/remove-cart/<%= product._id %>"
+                    formmethod="POST"
+                    class="btn btn-outline-danger w-100 mt-2">
+                    Remove
+                </button>
+            </div>
+            <% }) %>
+        </div>
+        <hr>
+        <h4 class="text-end">
+            Grand Total: ₹ 
+            <span id="grandTotal"><%= grandTotal %></span>
+        </h4>
+        <button type="submit" 
+                class="btn btn-success w-100 mt-3">
+            Place Order
+        </button>
+    </form>
+</div>
+<script>
+const quantityInputs = document.querySelectorAll('.quantity-input');
+const grandTotalEl = document.getElementById('grandTotal');
+function calculateTotal() {
+    let grandTotal = 0;
+    quantityInputs.forEach(input => {
+        const price = parseInt(input.dataset.price);
+        const quantity = parseInt(input.value) || 0;
+        const subtotal = price * quantity;
+        input.closest('.product-card')
+             .querySelector('.item-total')
+             .textContent = subtotal;
+        grandTotal += subtotal;
+    });
+    grandTotalEl.textContent = grandTotal;
+}
+quantityInputs.forEach(input => {
+    input.addEventListener('input', calculateTotal);
+});
+</script>
+</body>
+</html>

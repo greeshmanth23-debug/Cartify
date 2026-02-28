@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cartify</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="user-body">
+
+<div class="container mt-3">
+    <header class="header-box d-flex justify-content-between align-items-center">
+
+        <a href="/user" class="logo d-flex align-items-center text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="36"
+                 height="36"
+                 fill="currentColor"
+                 class="bi bi-cart me-2"
+                 viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+            <span class="fs-4 fw-semibold text-dark">Cartify</span>
+        </a>
+
+        <ul class="nav nav-pills align-items-center">
+            <li class="nav-item">
+                <a href="/user" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/cart" class="nav-link">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a href="/userproducts" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-link">Orders</a>
+            </li>
+            <li class="nav-item ms-3">
+                <form action="/logout" method="POST">
+                    <button type="submit" class="btn btn-outline-danger">Logout</button>
+                </form>
+            </li>
+        </ul>
+
+    </header>
+</div>
+
+<div class="container-img mt-4">
+    <div class="container-text">
+        <h3>Everything You Love, Delivered to Your Door.</h3>
+        <h5>From tech essentials to fresh fits—find it all on Cartify.</h5>
+        <div class="badge bg-primary">
+            <a href="/userproducts" style="color: rgb(7, 8, 8);text-decoration: none; font-size: 1.1rem;">Explore the Collection</a>
+        </div>
+    </div>
+</div>
+<div class="container-groceries product-sec">
+    <h2>Groceries</h2>
+        <div class="products">
+        <%  groceries.forEach(function(grocery){ %>
+            <div class="product-card">
+                <img src="/uploads/<%=grocery.image%>" width="100%">
+                <h3><%= grocery.name %></h3>
+                <div class="product-det">
+                    <span class="badge bg-primary"><%= grocery.category %></span>
+                    <span class="badge bg-success"><%= grocery.quantity %> in stock</span>
+                </div>
+                <div class="product-det">
+                    <p class="badge bg-danger">Price: ₹<%= grocery.price %></p>
+                    <a class="know-more" href="/userproduct/<%= grocery._id %>" style="text-decoration: none;">Know More</a>
+                </div>
+                <div class="addtocart">
+                    <form action="/save-cart/<%=grocery._id%>" method="POST">
+                        <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+</body>
+</html>

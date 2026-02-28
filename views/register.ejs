@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="login">
+        <form class="loginform" action="/register" method="POST">
+            <h1>Register</h1>
+            <div class="form-inputs">
+                <label for="username">
+                    Username:
+                </label>
+                <input id="username" type="text" name="username">
+            </div>
+            <div class="form-inputs">
+                <label for="password">
+                    password:
+                </label>
+                <input id="password" type="password" name="password">
+            </div>
+            <div class="form-inputs-role">
+                <label for="role">
+                    Role:
+                </label>
+                <select id="role" name="role">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
+            <button class="login-button" type="submit">Register</button>
+            <p>Already have an account? <a href="/">Login here</a></p>
+        </form>
+    </div>
+</body>
+</html>

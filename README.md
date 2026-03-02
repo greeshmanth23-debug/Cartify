@@ -286,7 +286,7 @@ Follow these steps carefully to set up Cartify on your system.
 ### 📥 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Cartify.git
+git clone https://github.com/greeshmanth23-debug/Cartify.git
 cd Cartify
 ```
 
@@ -367,7 +367,7 @@ Visit:
 
 ```
 http://localhost:3000
-``
+```
 ---
 
 ⭐ If you like this project, consider giving it a star!

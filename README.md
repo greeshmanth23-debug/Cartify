@@ -277,11 +277,100 @@ Orders:
 <img width="2880" height="3834" alt="screencapture-localhost-3000-orders-2026-03-01-21_44_16" src="https://github.com/user-attachments/assets/22e6955a-12df-4c02-8ad0-1f36060f655e" />
 
 ---
+## 🚀 How to Run the Project Locally
 
-# Live on
+Follow these steps carefully to set up Cartify on your system.
+
+---
+
+### 📥 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/Cartify.git
+cd Cartify
 ```
-https://cartify-4hyk.onrender.com
-```          
+
+---
+
+### 📦 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+This will install:
+- Express
+- Mongoose
+- EJS
+- Multer
+- Express-session
+- Dotenv
+- And other required packages
+
+---
+
+### ⚙️ 3️⃣ Create Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+SESSION_SECRET=your_super_secret_key
+PORT=3000
+```
+
+🔹 Replace `your_mongodb_connection_string` with your MongoDB Atlas URI.  
+🔹 Use any strong random string for `SESSION_SECRET`.
+
+---
+
+### 📁 4️⃣ Ensure Uploads Folder Exists
+
+Make sure this folder exists:
+
+```
+public/uploads/
+```
+
+This folder stores uploaded product images.
+
+If it does not exist, create it manually.
+
+---
+
+### ▶️ 5️⃣ Start the Server
+
+For development (recommended):
+
+```bash
+npx nodemon app.js
+```
+
+Or using Node:
+
+```bash
+node app.js
+```
+
+You should see:
+
+```
+Connected to MongoDB
+Server is running on port 3000
+```
+
+---
+
+### 🌐 6️⃣ Open in Browser
+
+Visit:
+
+```
+http://localhost:3000
+``
+---
+
+⭐ If you like this project, consider giving it a star!
 
 ## 🚀 Conclusion
 

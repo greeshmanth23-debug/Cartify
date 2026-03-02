@@ -9,6 +9,17 @@ Developed as a major team project to demonstrate full stack development, authent
 </div>
 
 ---
+## Team Info
+
+#Batch 8
+
+| Name | Mobile Number |
+|------|------------|
+| R. Greeshmanth | 9052164495 |
+| Thirth P | 9380008120 |
+| Mohammed Basil | 9384721885 |
+| Ahmed Khan | 971507861545 |
+| Atharva Gadas | 7887418904 |
 
 ## 📌 Project Overview
 
@@ -87,16 +98,14 @@ MongoDB Database
 
 ### Sign Up
 User registers with:
-- Full Name
-- Email
+- Username
 - Password
-- Phone
-- Address
+- role
 
 These details are stored in MongoDB and used automatically during checkout.
 
 ### Login
-User logs in using email and password.
+User logs in using Username and password.
 After successful authentication, a JWT token is generated and user is redirected to Dashboard.
 
 ---
@@ -121,23 +130,11 @@ Displays:
 - Price per item
 - Total cost
 
-When user clicks Checkout:
-A popup modal appears showing:
-- Name (auto-filled)
-- Phone (auto-filled)
-- Address (auto-filled)
-- Total cost
-- Payment mode: Cash on Delivery
-- Confirm Order button
-
 When user clicks Confirm Order:
 - Order saved in database
 - Product stock updated
-- Cart cleared
+- The order is shown in the admin page
 
-Then another popup appears:
-Order successfully placed  
-Expected delivery: 5-7 days
 
 ### Orders Page
 Displays:
@@ -167,15 +164,7 @@ Admin logs in with admin credentials.
 
 ### Admin Dashboard
 Displays:
-- Total users
 - Total orders
-- Total revenue
-
-### Products Page (Admin)
-
-This page replaces the separate Add Product page.
-
-Admin can:
 - View all products
 - Add new product
 - Update existing product details
@@ -185,9 +174,9 @@ Admin can:
 - Change product image
 - Delete product if required
 
-All product management operations are handled in this single Products page.
+All product management operations are handled in this single admin page.
 
-### View Orders Page
+### View Page on same page
 Admin can see:
 - Order ID
 - Customer name
@@ -266,6 +255,33 @@ Orders:
 - Deployment and Debugging
 
 ---
+
+# The visual proofs
+# Admin page
+-Admin page
+<img width="2880" height="5922" alt="screencapture-localhost-3000-admin-2026-03-01-21_46_51" src="https://github.com/user-attachments/assets/c9c3e524-21f1-4fd3-ba67-b7bd85c09306" />
+-Add products section
+<img width="1048" height="549" alt="Screenshot 2026-03-01 at 9 35 56 PM" src="https://github.com/user-attachments/assets/d6a53374-24b2-483c-bd2e-e58344612c59" />
+-Products section
+<img width="1371" height="801" alt="Screenshot 2026-03-01 at 9 36 44 PM" src="https://github.com/user-attachments/assets/fa4cacbb-69ef-49a0-807d-f75e256b580f" />
+-Orders section
+
+# User side
+-Header and dashboard
+<img width="2880" height="3914" alt="screencapture-localhost-3000-user-2026-03-01-21_39_56" src="https://github.com/user-attachments/assets/728574d0-b973-4726-b24c-4f3c28545876" />
+-Products page
+<img width="2880" height="1960" alt="screencapture-localhost-3000-userproducts-2026-03-01-21_40_55" src="https://github.com/user-attachments/assets/707b1fac-dd67-4602-a3f9-da41ec5ab902" />
+-Cart
+<img width="1400" height="778" alt="Screenshot 2026-03-01 at 9 42 30 PM" src="https://github.com/user-attachments/assets/bf3b1358-dc16-4cbd-9233-c6e83f742d13" />
+-Orders page
+<img width="2880" height="3834" alt="screencapture-localhost-3000-orders-2026-03-01-21_44_16" src="https://github.com/user-attachments/assets/22e6955a-12df-4c02-8ad0-1f36060f655e" />
+
+---
+
+# Live on
+```
+https://cartify-4hyk.onrender.com
+```          
 
 ## 🚀 Conclusion
 

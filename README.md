@@ -9,7 +9,7 @@ Developed as a major team project to demonstrate full stack development, authent
 </div>
 
 ---
-## Team Info
+## 👥 Team Information
 
 #Batch 8
 
@@ -32,20 +32,6 @@ Cartify is a full stack e-commerce web application that allows users to:
 - View order history
 
 The platform also provides an Admin Portal to manage products and monitor customer orders.
-
----
-
-## 👥 Team Information
-
-This project was developed by a team of 4 members.
-
-Team Members:
-- R.Greeshmanth
-- Member2
-- Member3
-- Member4
-
-Team contributions included frontend development, backend API development, database design, authentication, testing, and integration.
 
 ---
 

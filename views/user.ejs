@@ -80,6 +80,54 @@
         <% }) %>
     </div>
 </div>
+<div class="container-electronics product-sec mt-5">
+    <h2>Electronics</h2>
+    <div class="products">
+        <% electronics.forEach(function(electronic){ %>
+            <div class="product-card">
+                <img src="/uploads/<%= electronic.image %>" width="100%">
+                <h3><%= electronic.name %></h3>
+                <div class="product-det">
+                    <span class="badge bg-primary"><%= electronic.category %></span>
+                    <span class="badge bg-success"><%= electronic.quantity %> in stock</span>
+                </div>
+                <div class="product-det">
+                    <p class="badge bg-danger">Price: ₹<%= electronic.price %></p>
+                    <a class="know-more" href="/userproduct/<%= electronic._id %>" style="text-decoration: none;">Know More</a>
+                </div>
+                <div class="addtocart">
+                    <form action="/save-cart/<%= electronic._id %>" method="POST">
+                        <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+<div class="container-decoratives product-sec mt-5">
+    <h2>Decoratives</h2>
+    <div class="products">
+        <% decoratives.forEach(function(decorative){ %>
+            <div class="product-card">
+                <img src="/uploads/<%= decorative.image %>" width="100%">
+                <h3><%= decorative.name %></h3>
+                <div class="product-det">
+                    <span class="badge bg-primary"><%= decorative.category %></span>
+                    <span class="badge bg-success"><%= decorative.quantity %> in stock</span>
+                </div>
+                <div class="product-det">
+                    <p class="badge bg-danger">Price: ₹<%= decorative.price %></p>
+                    <a class="know-more" href="/userproduct/<%= decorative._id %>" style="text-decoration: none;">Know More</a>
+                </div>
+                <div class="addtocart">
+                    <form action="/save-cart/<%= decorative._id %>" method="POST">
+                        <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
 
 </body>
 </html>

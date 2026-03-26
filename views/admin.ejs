@@ -108,11 +108,11 @@
         <% order.products.forEach(item => { %>
             <li class="list-group-item d-flex justify-content-between">
                 <span>
-                    <%= item.productId.name %>
+                    <%= item.productId ? item.productId.name : "Deleted Product" %>
                     (x <%= item.quantity %>)
                 </span>
                 <span>
-                    ₹ <%= item.productId.price * item.quantity %>
+                    ₹ <%= item.productId ? item.productId.price * item.quantity : 0 %>
                 </span>
             </li>
         <% }) %>

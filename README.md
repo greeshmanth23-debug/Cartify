@@ -9,17 +9,7 @@ Developed as a major team project to demonstrate full stack development, authent
 </div>
 
 ---
-## 👥 Team Information
 
-#Batch 8
-
-| Name | Mobile Number |
-|------|------------|
-| R. Greeshmanth | 9052164495 |
-| Thirth P | 9380008120 |
-| Mohammed Basil | 9384721885 |
-| Ahmed Khan | 971507861545 |
-| Atharva Gadas | 7887418904 |
 
 ## 📌 Project Overview
 

@@ -13,15 +13,19 @@
     <header class="header-box d-flex justify-content-between align-items-center">
 
         <a href="/user" class="logo d-flex align-items-center text-decoration-none">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 width="36"
-                 height="36"
-                 fill="currentColor"
-                 class="bi bi-cart me-2"
-                 viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-            </svg>
-            <span class="fs-4 fw-semibold text-dark">Cartify</span>
+            <div class="d-flex align-items-center">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="36"
+       height="36"
+       fill="currentColor"
+       class="bi bi-bag-check me-2"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M10.854 5.854a.5.5 0 0 0-.708-.708L7 8.293 5.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+    <path d="M8 1a2 2 0 0 0-2 2H4a1 1 0 0 0-1 1v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1h-2a2 2 0 0 0-2-2m1 2H7a1 1 0 0 1 2 0"/>
+  </svg>
+
+  <span class="fs-4 fw-semibold text-dark">Foodify</span>
+</div>
         </a>
 
         <ul class="nav nav-pills align-items-center">
@@ -49,30 +53,30 @@
 
 <div class="container-img mt-4">
     <div class="container-text">
-        <h3>Everything You Love, Delivered to Your Door.</h3>
-        <h5>From tech essentials to fresh fits—find it all on Cartify.</h5>
+        <h3>Feed your Cravings, without any efforts.</h3>
+        <h5>From starters to desserts find it all on Foodify.</h5>
         <div class="badge bg-primary">
-            <a href="/userproducts" style="color: rgb(7, 8, 8);text-decoration: none; font-size: 1.1rem;">Explore the Collection</a>
+            <a href="/userproducts" style="color: rgb(7, 8, 8);text-decoration: none; font-size: 1.1rem;">Explore the dishes</a>
         </div>
     </div>
 </div>
 <div class="container-groceries product-sec">
-    <h2>Groceries</h2>
+    <h2>Starters</h2>
         <div class="products">
-        <%  groceries.forEach(function(grocery){ %>
+        <%  starters.forEach(function(starters){ %>
             <div class="product-card">
-                <img src="/uploads/<%=grocery.image%>" width="100%">
-                <h3><%= grocery.name %></h3>
+                <img src="/uploads/<%=starters.image%>" width="100%">
+                <h3><%= starters.name %></h3>
                 <div class="product-det">
-                    <span class="badge bg-primary"><%= grocery.category %></span>
-                    <span class="badge bg-success"><%= grocery.quantity %> in stock</span>
+                    <span class="badge bg-primary"><%= starters.category %></span>
+                    <span class="badge bg-success"><%= starters.quantity %> in stock</span>
                 </div>
                 <div class="product-det">
-                    <p class="badge bg-danger">Price: ₹<%= grocery.price %></p>
-                    <a class="know-more" href="/userproduct/<%= grocery._id %>" style="text-decoration: none;">Know More</a>
+                    <p class="badge bg-danger">Price: ₹<%= starters.price %></p>
+                    <a class="know-more" href="/userproduct/<%= starters._id %>" style="text-decoration: none;">Know More</a>
                 </div>
                 <div class="addtocart">
-                    <form action="/save-cart/<%=grocery._id%>" method="POST">
+                    <form action="/save-cart/<%=starters._id%>" method="POST">
                         <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
                     </form>
                 </div>
@@ -81,22 +85,22 @@
     </div>
 </div>
 <div class="container-electronics product-sec mt-5">
-    <h2>Electronics</h2>
+    <h2>Main Courses</h2>
     <div class="products">
-        <% electronics.forEach(function(electronic){ %>
+        <% maincourses.forEach(function(maincourse){ %>
             <div class="product-card">
-                <img src="/uploads/<%= electronic.image %>" width="100%">
-                <h3><%= electronic.name %></h3>
+                <img src="/uploads/<%= maincourse.image %>" width="100%">
+                <h3><%= maincourse.name %></h3>
                 <div class="product-det">
-                    <span class="badge bg-primary"><%= electronic.category %></span>
-                    <span class="badge bg-success"><%= electronic.quantity %> in stock</span>
+                    <span class="badge bg-primary"><%= maincourse.category %></span>
+                    <span class="badge bg-success"><%= maincourse.quantity %> in stock</span>
                 </div>
                 <div class="product-det">
-                    <p class="badge bg-danger">Price: ₹<%= electronic.price %></p>
-                    <a class="know-more" href="/userproduct/<%= electronic._id %>" style="text-decoration: none;">Know More</a>
+                    <p class="badge bg-danger">Price: ₹<%= maincourse.price %></p>
+                    <a class="know-more" href="/userproduct/<%= maincourse._id %>" style="text-decoration: none;">Know More</a>
                 </div>
                 <div class="addtocart">
-                    <form action="/save-cart/<%= electronic._id %>" method="POST">
+                    <form action="/save-cart/<%= maincourse._id %>" method="POST">
                         <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
                     </form>
                 </div>
@@ -105,22 +109,22 @@
     </div>
 </div>
 <div class="container-decoratives product-sec mt-5">
-    <h2>Decoratives</h2>
+    <h2>Desserts</h2>
     <div class="products">
-        <% decoratives.forEach(function(decorative){ %>
+        <% desserts.forEach(function(dessert){ %>
             <div class="product-card">
-                <img src="/uploads/<%= decorative.image %>" width="100%">
-                <h3><%= decorative.name %></h3>
+                <img src="/uploads/<%= dessert.image %>" width="100%">
+                <h3><%= dessert.name %></h3>
                 <div class="product-det">
-                    <span class="badge bg-primary"><%= decorative.category %></span>
-                    <span class="badge bg-success"><%= decorative.quantity %> in stock</span>
+                    <span class="badge bg-primary"><%= dessert.category %></span>
+                    <span class="badge bg-success"><%= dessert.quantity %> in stock</span>
                 </div>
                 <div class="product-det">
-                    <p class="badge bg-danger">Price: ₹<%= decorative.price %></p>
-                    <a class="know-more" href="/userproduct/<%= decorative._id %>" style="text-decoration: none;">Know More</a>
+                    <p class="badge bg-danger">Price: ₹<%= dessert.price %></p>
+                    <a class="know-more" href="/userproduct/<%= dessert._id %>" style="text-decoration: none;">Know More</a>
                 </div>
                 <div class="addtocart">
-                    <form action="/save-cart/<%= decorative._id %>" method="POST">
+                    <form action="/save-cart/<%= dessert._id %>" method="POST">
                         <button type="submit" class="badge bg-primary" style="width: 100%;">Add to cart</button>
                     </form>
                 </div>

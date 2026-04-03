@@ -111,10 +111,10 @@ app.get('/user',async (req,res)=>{
     if(!req.session.username || req.session.role !== 'user'){
         return res.send('<script>alert("Page interrupted!");window.location.href="/";</script>');
     }
-    const groceries=await productdata.find({category:'grocery'});
-    const electronics=await productdata.find({category:'electronics'});
-    const decoratives=await productdata.find({category:'decoratives'});
-    res.render('user',{groceries,electronics,decoratives});
+    const starters=await productdata.find({category:'starters'});
+    const maincourses=await productdata.find({category:'maincourses'});
+    const desserts=await productdata.find({category:'desserts'});
+    res.render('user',{starters,maincourses,desserts});
 })
 app.post('/logout',(req,res)=>{
     req.session.destroy();

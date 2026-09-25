@@ -27,46 +27,50 @@ The platform also provides an Admin Portal to manage products and monitor custom
 
 ## 🎯 Project Objectives
 
-- Build a complete MERN-based e-commerce application
+- Build a complete MERN-based e-commerce application using a decoupled architecture
 - Implement secure authentication and role-based access
 - Manage cart and order processing
 - Design scalable MongoDB schemas
-- Maintain a clean and minimal workflow
+- Maintain a clean, minimal, and highly interactive modern UI
 - Simulate a real-world online shopping experience
 
 ---
 
 ## 🛠 Tech Stack
 
-Frontend:
-- HTML
-- CSS
-- Javascript /ejs
-- CSS /Bootstrap
+**Frontend:**
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- React.js
+- Vite (Build Tool & Dev Server)
+- Context API (State Management)
 
-Backend:
+**Backend:**
 - Node.js
 - Express.js
 
-Database:
+**Database:**
 - MongoDB
 - Mongoose
 
-Authentication:
-- JWT (JSON Web Token)
+**Authentication:**
+- Express Session / Credentials
 - Role-Based Authorization
 
 ---
 
 ## 🏗 System Architecture
 
-Frontend (ejs)
-        |
-        |
-REST API (Node + Express)
-        |
-        |
-MongoDB Database
+The application is decoupled into two separate services:
+
+**Frontend (React.js + Vite)** — Runs on Port 5173  
+        |  
+        | (REST API via proxy)  
+        |  
+**Backend (Node + Express)** — Runs on Port 5001  
+        |  
+        |  
+**MongoDB Database**
 
 ---
 
@@ -74,30 +78,29 @@ MongoDB Database
 
 ### Sign Up
 User registers with:
-- Username
+- Email
 - Password
-- role
 
-These details are stored in MongoDB and used automatically during checkout.
+These details are stored in MongoDB and used automatically during checkout. *(Note: Admin registration is disabled for security; admin accounts must be seeded directly).*
 
 ### Login
-User logs in using Username and password.
-After successful authentication, a JWT token is generated and user is redirected to Dashboard.
+User logs in using their Email and password.
+After successful authentication, a session is established and the user is redirected to the Home/Products page.
 
 ---
 
 ## 🖥 User Pages
 
-### Dashboard
+### Dashboard / Home
 - Welcome message
-- Featured products
-- Quick navigation
+- Featured products carousel
+- Quick navigation to product categories
 
 ### Products Page
-- Displays all products
-- Product name, image, price
+- Displays all available products
+- Product name, image, price, and description
 - Add to Cart functionality
-- View product details
+- Interactive hover effects and modern glassmorphism design
 
 ### Cart Page
 Displays:
@@ -107,10 +110,9 @@ Displays:
 - Total cost
 
 When user clicks Confirm Order:
-- Order saved in database
-- Product stock updated
-- The order is shown in the admin page
-
+- Order is saved in the database
+- Product stock is updated
+- The order becomes visible in the Admin portal
 
 ### Orders Page
 Displays:
@@ -120,144 +122,87 @@ Displays:
 - Delivery date
 - Order status
 
-### Settings Page
-User can:
-- View profile details
-- Update:
-  - Name
-  - Phone
-  - Address
-  - Password
-
-Changes are updated in MongoDB.
-
 ---
 
 ## 👨‍💼 Admin Module
 
 ### Admin Login
-Admin logs in with admin credentials.
+Admin logs in with predefined admin credentials (e.g., `admin@gmail.com`).
 
 ### Admin Dashboard
 Displays:
-- Total orders
-- View all products
-- Add new product
-- Update existing product details
-- Modify price
-- Update stock
-- Edit description
-- Change product image
-- Delete product if required
+- Real-time customer orders
+- View all products in a grid layout
+- Add new product (with image upload)
+- Delete products if required
 
-All product management operations are handled in this single admin page.
-
-### View Page on same page
-Admin can see:
-- Order ID
-- Customer name
-- Items list
-- Total cost
-- Delivery address
-- Delivery date
-- Order status
+All product management and order fulfillment operations are handled in this unified dashboard.
 
 ---
 
 ## 🗄 Database Design (MongoDB Collections)
 
-Users:
-- _id
-- name
-- email
-- password
-- phone
-- address
-- role
+**Roles (Users):**
+- `_id`
+- `email`
+- `password`
+- `role` (Admin / User)
 
-Products:
-- _id
-- name
-- description
-- price
-- stock
-- image
+**Products:**
+- `_id`
+- `name`
+- `description`
+- `price`
+- `quantity` (Stock)
+- `category`
+- `image`
 
-Cart:
-- _id
-- userId
-- items:
-  - productId
-  - quantity
+**Cart:**
+- `_id`
+- `email` (User reference)
+- `items`: [ `productId`, `quantity` ]
 
-Orders:
-- _id
-- userId
-- items:
-  - productId
-  - quantity
-  - price
-- totalAmount
-- deliveryDate
-- status
-- createdAt
+**Orders:**
+- `_id`
+- `email` (Customer)
+- `items`: [ `productId`, `quantity`, `price` ]
+- `totalAmount`
+- `deliveryDate`
+- `status`
+- `createdAt`
 
 ---
 
 ## ✨ Key Features
 
-- MERN Stack Implementation
-- Secure JWT Authentication
+- **Decoupled MERN Stack** Implementation (React + Node/Express)
+- Secure Session Authentication
 - Role-Based Access Control
 - Shopping Cart Management
 - Order Processing System
 - Centralized Product Management for Admin
-- Stock Update After Order
-- Popup-Based Checkout and Confirmation
-- Clean and Minimal UI
+- Automated Stock Updates
+- Clean, Minimal, and Premium UI with Animations
 - RESTful API Architecture
 
 ---
 
 ## 📚 Learning Outcomes
 
-- Full Stack MERN Development
+- Full Stack MERN Development & Decoupling
+- React Component Architecture & Context State Management
 - REST API Design
 - MongoDB Schema Modeling
 - Authentication & Authorization
-- State Management in React
 - Business Logic Implementation
 - Team Collaboration
 - Deployment and Debugging
 
 ---
 
-# The visual proofs
-# Admin page
--Admin page
-<img width="2880" height="5922" alt="screencapture-localhost-3000-admin-2026-03-01-21_46_51" src="https://github.com/user-attachments/assets/c9c3e524-21f1-4fd3-ba67-b7bd85c09306" />
--Add products section
-<img width="1048" height="549" alt="Screenshot 2026-03-01 at 9 35 56 PM" src="https://github.com/user-attachments/assets/d6a53374-24b2-483c-bd2e-e58344612c59" />
--Products section
-<img width="1371" height="801" alt="Screenshot 2026-03-01 at 9 36 44 PM" src="https://github.com/user-attachments/assets/fa4cacbb-69ef-49a0-807d-f75e256b580f" />
--Orders section
-
-# User side
--Header and dashboard
-<img width="2880" height="3914" alt="screencapture-localhost-3000-user-2026-03-01-21_39_56" src="https://github.com/user-attachments/assets/728574d0-b973-4726-b24c-4f3c28545876" />
--Products page
-<img width="2880" height="1960" alt="screencapture-localhost-3000-userproducts-2026-03-01-21_40_55" src="https://github.com/user-attachments/assets/707b1fac-dd67-4602-a3f9-da41ec5ab902" />
--Cart
-<img width="1400" height="778" alt="Screenshot 2026-03-01 at 9 42 30 PM" src="https://github.com/user-attachments/assets/bf3b1358-dc16-4cbd-9233-c6e83f742d13" />
--Orders page
-<img width="2880" height="3834" alt="screencapture-localhost-3000-orders-2026-03-01-21_44_16" src="https://github.com/user-attachments/assets/22e6955a-12df-4c02-8ad0-1f36060f655e" />
-
----
 ## 🚀 How to Run the Project Locally
 
 Follow these steps carefully to set up Cartify on your system.
-
----
 
 ### 📥 1️⃣ Clone the Repository
 
@@ -266,98 +211,74 @@ git clone https://github.com/greeshmanth23-debug/Cartify.git
 cd Cartify
 ```
 
----
-
 ### 📦 2️⃣ Install Dependencies
 
+Because the app is decoupled, you must install dependencies for both the frontend and backend.
+
+**For the Backend:**
 ```bash
+cd server
 npm install
 ```
 
-This will install:
-- Express
-- Mongoose
-- EJS
-- Multer
-- Express-session
-- Dotenv
-- And other required packages
-
----
+**For the Frontend:**
+```bash
+cd ../client
+npm install
+```
 
 ### ⚙️ 3️⃣ Create Environment Variables
 
-Create a `.env` file in the root directory and add the following:
+Create a `.env` file in the **`server`** directory and add the following:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb://127.0.0.1:27017/cartify
 SESSION_SECRET=your_super_secret_key
-PORT=3000
+PORT=5001
 ```
 
-🔹 Replace `your_mongodb_connection_string` with your MongoDB Atlas URI.  
-🔹 Use any strong random string for `SESSION_SECRET`.
-
----
+*(You can replace the `MONGO_URI` with your MongoDB Atlas string if you aren't running MongoDB locally).*
 
 ### 📁 4️⃣ Ensure Uploads Folder Exists
 
-Make sure this folder exists:
+Make sure this folder exists inside the backend directory:
 
+```bash
+mkdir -p server/uploads
 ```
-public/uploads/
-```
-
 This folder stores uploaded product images.
 
-If it does not exist, create it manually.
+### ▶️ 5️⃣ Start the Application
 
----
+You will need two terminal windows/tabs to run the decoupled application.
 
-### ▶️ 5️⃣ Start the Server
-
-For development (recommended):
-
+**Terminal 1 (Backend):**
 ```bash
-npx nodemon app.js
+cd server
+npm run dev
 ```
+*You should see "Server is running on port 5001" and "Connected to MongoDB".*
 
-Or using Node:
-
+**Terminal 2 (Frontend):**
 ```bash
-node app.js
+cd client
+npm run dev
 ```
-
-You should see:
-
-```
-Connected to MongoDB
-Server is running on port 3000
-```
-
----
 
 ### 🌐 6️⃣ Open in Browser
 
-Visit:
+Visit the Vite development server in your browser:
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
+
 ---
 
 ⭐ If you like this project, consider giving it a star!
 
 ## 🚀 Conclusion
 
-Cartify is a complete MERN-based e-commerce platform designed with clean workflow and centralized product management for the admin.
+Cartify is a complete MERN-based e-commerce platform designed with a clean workflow, centralized admin management, and a highly interactive modern React frontend.
 
-The system demonstrates real-world architecture, secure authentication, structured database modeling, and practical e-commerce logic.
-
-This project fulfills the requirements of a major web development internship project and showcases industry-ready development practices.
-
-<div align="center">
-
-Built with teamwork and full stack engineering principles.
-
-</div>
+The system demonstrates real-world architecture, secure authentication, structured database modeling, and practical e-commerce logic. This project showcases industry-ready development practices and full stack engineering principles.
